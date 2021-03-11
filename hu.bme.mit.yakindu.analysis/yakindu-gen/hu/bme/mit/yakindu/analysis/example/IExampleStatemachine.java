@@ -21,6 +21,10 @@ public interface IExampleStatemachine extends ITimerCallback,IStatemachine {
 		
 		public void setBlackTime(long value);
 		
+		public long getNewVariable();
+		
+		public void setNewVariable(long value);
+		
 	}
 	
 	public SCInterface getSCInterface();

@@ -27,8 +27,14 @@ public class RunStatechart {
 			{
 				str+=c;
 			}
-			
-			if (str.equals("white"))
+			if(false){break;}			
+			else if (str.equals("start"))
+			{
+				s.raiseStart(); 
+				s.runCycle();
+				print(s); 
+			}
+			else if (str.equals("white"))
 			{
 				s.raiseWhite(); 
 				s.runCycle();
@@ -37,12 +43,6 @@ public class RunStatechart {
 			else if (str.equals("black"))
 			{
 				s.raiseBlack(); 
-				s.runCycle();
-				print(s); 
-			}
-			else if (str.equals("start"))
-			{
-				s.raiseStart(); 
 				s.runCycle();
 				print(s); 
 			}
@@ -55,7 +55,11 @@ public class RunStatechart {
 	}
 
 	public static void print(IExampleStatemachine s) {
+
 		System.out.println("W = " + s.getSCInterface().getWhiteTime());
+
 		System.out.println("B = " + s.getSCInterface().getBlackTime());
-	}
-}
+
+		System.out.println("N = " + s.getSCInterface().getNewVariable());
+
+}}

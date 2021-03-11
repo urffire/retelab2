@@ -235,3 +235,128 @@ Command-line arguments:  -os linux -ws gtk -arch x86_64
 
 !ENTRY org.eclipse.launchbar.core 2 0 2021-03-11 14:34:55.670
 !MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.jface 2 0 2021-03-11 20:43:56.123
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2021-03-11 20:43:56.123
+!MESSAGE A conflict occurred for CTRL+D:
+Binding(CTRL+D,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.eof,EOF,
+		Send end of file,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@713ef230,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.debug.ui.console,,,system)
+Binding(CTRL+D,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.delete.line,Delete Line,
+		Delete a line of text,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6c0856fa,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(CTRL+D,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.delete.line,Delete Line,
+		Delete a line of text,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6c0856fa,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
+
+!ENTRY org.eclipse.core.resources 4 2 2021-03-11 21:38:21.206
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.jdt.internal.core.builder.ClasspathJrt.findClass(ClasspathJrt.java:297)
+	at org.eclipse.jdt.internal.core.builder.ClasspathJrt.findClass(ClasspathJrt.java:369)
+	at org.eclipse.jdt.internal.core.builder.NameEnvironment.findClass(NameEnvironment.java:524)
+	at org.eclipse.jdt.internal.core.builder.NameEnvironment.findType(NameEnvironment.java:556)
+	at org.eclipse.jdt.internal.compiler.env.IModuleAwareNameEnvironment.findType(IModuleAwareNameEnvironment.java:99)
+	at org.eclipse.jdt.internal.compiler.lookup.LookupEnvironment.createPackage(LookupEnvironment.java:1112)
+	at org.eclipse.jdt.internal.compiler.lookup.CompilationUnitScope.buildTypeBindings(CompilationUnitScope.java:132)
+	at org.eclipse.jdt.internal.compiler.lookup.LookupEnvironment.buildTypeBindings(LookupEnvironment.java:463)
+	at org.eclipse.jdt.internal.compiler.Compiler.internalBeginToCompile(Compiler.java:845)
+	at org.eclipse.jdt.internal.compiler.Compiler.beginToCompile(Compiler.java:394)
+	at org.eclipse.jdt.internal.compiler.Compiler.compile(Compiler.java:444)
+	at org.eclipse.jdt.internal.compiler.Compiler.compile(Compiler.java:426)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.compile(AbstractImageBuilder.java:386)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.compile(BatchImageBuilder.java:214)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.compile(AbstractImageBuilder.java:318)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.build(BatchImageBuilder.java:79)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.buildAll(JavaBuilder.java:262)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.buildDeltas(JavaBuilder.java:284)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:200)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:798)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:219)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:262)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:315)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:318)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:277)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:460)
+	at org.eclipse.core.internal.resources.Project$1.run(Project.java:574)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2292)
+	at org.eclipse.core.internal.resources.Project.internalBuild(Project.java:548)
+	at org.eclipse.core.internal.resources.Project.build(Project.java:116)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate$1.run(LaunchConfigurationDelegate.java:424)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2292)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2314)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate.buildProjects(LaunchConfigurationDelegate.java:431)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate.buildForLaunch(LaunchConfigurationDelegate.java:127)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:832)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:720)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1029)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1243)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.resources 4 566 2021-03-11 21:38:21.250
+!MESSAGE Errors occurred during the build.
+!SUBENTRY 1 org.eclipse.jdt.core 4 75 2021-03-11 21:38:21.251
+!MESSAGE Errors running builder 'Java Builder' on project 'hu.bme.mit.yakindu.analysis'.
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.jdt.internal.core.builder.ClasspathJrt.findClass(ClasspathJrt.java:297)
+	at org.eclipse.jdt.internal.core.builder.ClasspathJrt.findClass(ClasspathJrt.java:369)
+	at org.eclipse.jdt.internal.core.builder.NameEnvironment.findClass(NameEnvironment.java:524)
+	at org.eclipse.jdt.internal.core.builder.NameEnvironment.findType(NameEnvironment.java:556)
+	at org.eclipse.jdt.internal.compiler.env.IModuleAwareNameEnvironment.findType(IModuleAwareNameEnvironment.java:99)
+	at org.eclipse.jdt.internal.compiler.lookup.LookupEnvironment.createPackage(LookupEnvironment.java:1112)
+	at org.eclipse.jdt.internal.compiler.lookup.CompilationUnitScope.buildTypeBindings(CompilationUnitScope.java:132)
+	at org.eclipse.jdt.internal.compiler.lookup.LookupEnvironment.buildTypeBindings(LookupEnvironment.java:463)
+	at org.eclipse.jdt.internal.compiler.Compiler.internalBeginToCompile(Compiler.java:845)
+	at org.eclipse.jdt.internal.compiler.Compiler.beginToCompile(Compiler.java:394)
+	at org.eclipse.jdt.internal.compiler.Compiler.compile(Compiler.java:444)
+	at org.eclipse.jdt.internal.compiler.Compiler.compile(Compiler.java:426)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.compile(AbstractImageBuilder.java:386)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.compile(BatchImageBuilder.java:214)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.compile(AbstractImageBuilder.java:318)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.build(BatchImageBuilder.java:79)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.buildAll(JavaBuilder.java:262)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.buildDeltas(JavaBuilder.java:284)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:200)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:798)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:219)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:262)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:315)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:318)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:277)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:460)
+	at org.eclipse.core.internal.resources.Project$1.run(Project.java:574)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2292)
+	at org.eclipse.core.internal.resources.Project.internalBuild(Project.java:548)
+	at org.eclipse.core.internal.resources.Project.build(Project.java:116)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate$1.run(LaunchConfigurationDelegate.java:424)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2292)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2314)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate.buildProjects(LaunchConfigurationDelegate.java:431)
+	at org.eclipse.debug.core.model.LaunchConfigurationDelegate.buildForLaunch(LaunchConfigurationDelegate.java:127)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:832)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:720)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1029)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1243)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
