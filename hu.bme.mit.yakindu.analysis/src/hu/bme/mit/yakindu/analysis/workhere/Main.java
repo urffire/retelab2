@@ -1,10 +1,15 @@
 package hu.bme.mit.yakindu.analysis.workhere;
 
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.junit.Test;
 import org.yakindu.sct.model.sgraph.State;
 import org.yakindu.sct.model.sgraph.Statechart;
+import org.yakindu.sct.model.sgraph.Transition;
 
 import hu.bme.mit.model2gml.Model2GML;
 import hu.bme.mit.yakindu.analysis.modelmanager.ModelManager;
@@ -25,11 +30,49 @@ public class Main {
 		// Reading model
 		Statechart s = (Statechart) root;
 		TreeIterator<EObject> iterator = s.eAllContents();
+		TreeIterator<EObject> iter = s.eAllContents();
+		List<String> allNames = new ArrayList();
+		
+		
+		while (iter.hasNext()) {
+			EObject content = iter.next();
+			if(content instanceof State) {
+				State state = (State) content;
+				allNames.add(state.getName());
+			}
+		}
+		
 		while (iterator.hasNext()) {
 			EObject content = iterator.next();
 			if(content instanceof State) {
 				State state = (State) content;
-				System.out.println(state.getName());
+				String name = state.getName();
+				if(state.getName()=="")
+				{
+					
+					
+					name = "Pisti";
+					while (allNames.contains(name))
+					{
+						name+="0";
+					}
+					System.out.println("Javasolom, hogy "+name+" legyen az állapot neve");
+					allNames.add(name);
+				}
+				
+				if (state.getOutgoingTransitions().size()==0)
+				{
+					System.out.println("Ez egy csapda állapot:"+name);
+				}
+				else {
+					System.out.println(name);
+				}
+				
+			}
+			if (content instanceof Transition)
+			{
+				Transition trans = (Transition) content;
+				System.out.println(trans.getSource().getName() + "->" + trans.getTarget().getName());
 			}
 		}
 		
